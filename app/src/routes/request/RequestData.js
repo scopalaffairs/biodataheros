@@ -4,6 +4,8 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './RequestData.css';
 import { Table, Dropdown, List, Grid, Header, Icon, Input, Label, Menu, Divider, Card, Image, } from 'semantic-ui-react'
 import { WithContext as ReactTags } from 'react-tag-input';
+import Echarts from '../../components/Echarts/Echarts';
+import { BAR } from '../../components/Echarts/constants/types';
 
 const Keys = {
   TAB: 9,
@@ -35,8 +37,25 @@ class RequestData extends React.Component {
         { id: 'chronic_illness', text: 'Chronic illness' },
         { id: 'depression', text: 'Depression' },
         { id: 'drug_abuse', text: 'Drug abuse and addiction' },
-        { id: 'Epilepsy', text: 'Epilepsy' },
-        { id: 'Eczema', text: 'Eczema' },
+        { id: 'epilepsy', text: 'Epilepsy' },
+        { id: 'eczema', text: 'Eczema' },
+        { id: 'fetal', text: 'Fetal alcohol syndrome' },
+        { id: 'fibromyalgia', text: 'Fibromyalgia' },
+        { id: 'gerd', text: 'GERD (Gastroesophageal Reflux Disease)' },
+        { id: 'growth', text: 'Growth hormone deficiency' },
+        { id: 'heart_diseases', text: 'Heart diseases' },
+        { id: 'hiv_aids', text: 'HIV/AIDS' },
+        { id: 'hunting', text: 'Huntingtons disease' },
+        { id: 'inflammatory', text: 'Inflammatory bowel disease' },
+        { id: 'juvenile', text: 'Juvenile rheumatoid arthritis' },
+        { id: 'kidney', text: 'Kidney disease' },
+        { id: 'lactose', text: 'Lactose intolerance' },
+        { id: 'learning', text: 'Learning disabilities' },
+        { id: 'migraine', text: 'Migraine' },
+        { id: 'mental_health', text: 'Mental health' },
+        { id: 'lupus', text: 'Lupus' },
+        { id: 'mono', text: 'Mono(nucleosis)' },
+        { id: 'multiple_sclerosis', text: 'Multiple sclerosis' },
       ]
     };
     this.handleDelete = this.handleDelete.bind(this);
@@ -70,6 +89,17 @@ class RequestData extends React.Component {
   render() {
     const { tags, suggestions } = this.state;
 
+    const counts = [105, 20, 32, 44, 18, 19, 40, 15, 17, 86];
+    const items = tags.map(tag => {
+      return {
+        count: counts[tag.text.length % 10],
+        name: tag.text,
+      }
+    });
+    console.log(items);
+    console.log(items);
+    const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779', 
+        '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
     return (
       <div className={s.root}>
         <div className={s.container}>
@@ -96,7 +126,14 @@ class RequestData extends React.Component {
             handleAddition={this.handleAddition}
             //handleDrag={this.handleDrag}
             delimiters={[Keys.TAB, Keys.SPACE, Keys.COMMA]} />
-
+          
+          {!!tags.length && <Echarts 
+          barColors={barColors}
+          withTooltip 
+            type={BAR} items={items} series={[{
+            value: "count",
+            name: "name",
+          }]} />}
         </div>
       </div>
     );

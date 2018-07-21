@@ -194,16 +194,18 @@ class Echarts extends React.Component {
       case BAR: {
         option.xAxis.data = [];
         option.series = this.props.series.map((serie, serieIndex) => ({
-          data: this.props.items.map(item => {
+          data: this.props.items.map((item, itemIndex) => {
             if (serieIndex === 0) {
               option.xAxis.data.push(item.name);
             }
             return {
               value: item[serie.value],
+              itemStyle: {color: this.props.barColors[itemIndex]},
             };
           }),
           name: serie.value,
           type: this.props.type,
+          barMaxWidth: 200,
         }));
         break;
       }
@@ -313,20 +315,6 @@ class Echarts extends React.Component {
         onMouseLeave={this.handleMouseLeave}
         onMouseEnter={this.handleMouseEnter}
       >
-        <Grid.Row columns={2} className={s.headerRow}>
-          <Grid.Column>
-            <Header content={this.props.title} />
-          </Grid.Column>
-          {this.state.isMouseOver &&
-            !!buttons.length && (
-              <Grid.Column className={s.allignRow}>
-                <ButtonsPannel
-                  buttons={buttons.map(button => buttonsSettings[button])}
-                  echartsReact={this.echarts_react}
-                />
-              </Grid.Column>
-            )}
-        </Grid.Row>
         <Grid.Row columns={1}>
           <Grid.Column>
             {ReactEcharts && (
@@ -335,7 +323,7 @@ class Echarts extends React.Component {
                 ref={e => {
                   this.echarts_react = e;
                 }}
-                style={{ width: '99%', height: '500px' }}
+                style={{ width: '99%', height: '400px' }}
                 {...this.props.echartProps}
               />
             )}

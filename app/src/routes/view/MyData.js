@@ -26,16 +26,20 @@ class MyData extends React.Component {
       <div>
         <Header as='h4'>
           <Icon name='inbox' />
-          <Header.Content>New Requests</Header.Content>
+          <Header.Content>Request Inbox</Header.Content>
         </Header>
         <Menu vertical>
           <Menu.Item name='inbox' onClick={this.handleItemClick}>
             <Label color='teal'>1</Label>
-            Inbox
+            New 
+          </Menu.Item>
+          <Menu.Item name='spam' onClick={this.handleItemClick}>
+            <Label>93</Label>
+            Accepted 
           </Menu.Item>
           <Menu.Item name='spam' onClick={this.handleItemClick}>
             <Label>51</Label>
-            Trash
+            Declined 
           </Menu.Item>
         </Menu>
       </div>
@@ -47,7 +51,7 @@ class MyData extends React.Component {
       <Card>
         <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
         <Card.Content>
-          <Card.Header>Matthew</Card.Header>
+          <Card.Header>Markus Fischer</Card.Header>
           <Card.Meta>
             <span className='date'>Joined in 2015</span>
           </Card.Meta>
