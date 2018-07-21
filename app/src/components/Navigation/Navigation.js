@@ -22,7 +22,7 @@ class Navigation extends React.Component {
           <Icon name='random' /> Provide Data
         </Link>
         <Link className={s.link} to="/mydata">
-          <Icon name='table' /> My Data
+          <Icon name='table' /> View My Data
         </Link>
         <Link className={s.link} to="/requestdata">
           <Icon name='shopping basket' /> Request Data

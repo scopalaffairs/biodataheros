@@ -8,7 +8,7 @@ import { Button, Icon } from 'semantic-ui-react';
 class Header extends React.Component {
   render() {
     return (
-      <div>
+      <div className={s.bg}>
         <div className={s.root}>
           <div className={s.container}>
             <Navigation />
@@ -17,11 +17,11 @@ class Header extends React.Component {
               <span className={s.brandTxt}>BioDataHero</span>
             </Link>
             <div className={`ui vertical masthead center aligned segment ${s.header}`}>
-              <div className="ui text container">
-                <h1 className="ui inverted header">
-                  Imagine-a-Company
+              <div className={`ui text container`}>
+                <h1 className={`ui inverted header ${s.bigheader}`}>
+                  Join the Bio Data Network
                 </h1>
-                <h2>Do whatever you want when you want to.</h2>
+                <h2 className={s.subheader}>Do whatever you want when you want to.</h2>
               </div>
             </div>
           </div>
