@@ -13,15 +13,14 @@ class Header extends React.Component {
           <div className={s.container}>
             <Navigation />
             <Link className={s.brand} to="/">
-              <Icon name='heartbeat'  />
+              <Icon name='heartbeat' />
               <span className={s.brandTxt}>BioDataHero</span>
             </Link>
             <div className={`ui vertical masthead center aligned segment ${s.header}`}>
               <div className={`ui text container`}>
                 <h1 className={`ui inverted header ${s.bigheader}`}>
-                  Join the Bio Data Network
+                  One-Stop-Shop for clinical data
                 </h1>
-                <h2 className={s.subheader}>Do whatever you want when you want to.</h2>
               </div>
             </div>
           </div>

@@ -215,7 +215,6 @@ class MyData extends React.Component {
           <Divider hidden />
           <h1>{this.props.title}</h1>
           <Divider />
-
           <Grid columns={3}>
             <Grid.Row>
               <Grid.Column>
