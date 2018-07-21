@@ -20,20 +20,22 @@ class Home extends React.Component {
       <div className={s.root}>
         <div className={s.container}>
           <Divider hidden />
-          <Container textAlign='center'>
-            <Button color="blue" icon labelPosition='right'>
-              Provide Data
-              <Icon name='random' />
-            </Button>
-            <Button  color="blue" icon labelPosition='right'>
-              My Data
-              <Icon name='table alternate' />
-            </Button>
-            <Button  color="blue" icon labelPosition='right'>
-              Request Data
-              <Icon name='shopping basket' />
-            </Button>
-          </Container>
+          <div className="ui vertical stripe quote segment">
+            <div className="ui equal width stackable internally celled grid">
+              <div className="center aligned row">
+                <div className="column">
+                  <h3>"What a Company"</h3>
+                  <p>That is what they all say about us</p>
+                </div>
+                <div className="column">
+                  <h3>"I shouldn't have gone with their competitor."</h3>
+                  <p>
+                    <b>Nan</b> Chief Fun Officer Acme Toys
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

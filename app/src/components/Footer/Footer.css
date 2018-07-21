@@ -12,7 +12,6 @@
 .root {
   background: #333;
   color: #fff;
-
   position:absolute;
   bottom:0;
   width:100%;
@@ -22,6 +21,7 @@
 .container {
   margin: 0 auto;
   padding: 20px 15px;
+  float: right !important;
   max-width: var(--max-content-width);
   text-align: center;
 }
