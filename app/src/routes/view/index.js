@@ -6,7 +6,7 @@ const title = 'View My Data';
 
 function action() {
   return {
-    chunks: ['mydata'],
+    chunks: ['view'],
     title,
     component: (
       <LayoutBasic>
