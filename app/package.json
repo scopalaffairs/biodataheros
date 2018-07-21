@@ -119,7 +119,7 @@
     "webpack-hot-middleware": "^2.22.2",
     "webpack-node-externals": "^1.7.2"
   },
-  /*"lint-staged": {
+  "lint-staged": {
     "ignore": [
       "package.json"
     ],
@@ -137,9 +137,8 @@
         "git add --force"
       ]
     }
-  },*/
+  },
   "scripts": {
-    //"precommit": "lint-staged",
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
     "lint-css": "stylelint \"src/**/*.{css,less,styl,scss,sass,sss}\"",
     "lint": "yarn run lint-js && yarn run lint-css",
