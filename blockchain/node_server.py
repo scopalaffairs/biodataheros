@@ -171,9 +171,27 @@ def get_patients():
     \"birthdate\":\"11.08.1995\",\"gender\":\"male\",\"patientId\":1}]"
     return userprofile, 200
 
+
+@app.route('/getdata', methods=['GET'])
+def get_data():
+    get_chain()
+    return 200
+
+
+@app.route('/provideData', methods=['POST'])
+def provide_data():
+    author = "1"
+    tx_data = {"content": {"fileName": "test.json","fileHash": 1234},"author": 1,"timestamp": time.time()}
+    blockchain.add_new_transaction(tx_data)
+
+    return "Success", 201
+
+
 # endpoint to return the node's copy of the chain.
 # Our application will be using this endpoint to query
 # all the posts to display.
+
+
 @app.route('/chain', methods=['GET'])
 def get_chain():
     # make sure we've the longest chain
@@ -270,8 +288,9 @@ def announce_new_block(block):
     for peer in peers:
         url = "http://{}/add_block".format(peer)
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        requests.post(url, data=json.dumps(block.__dict__, sort_keys=True), headers=headers)
+        requests.post(url, data=json.dumps(
+            block.__dict__, sort_keys=True), headers=headers)
         print(json.dumps(block.__dict__))
 
 
-app.run(debug=True, port=int(sys.argv[1]))
+app.run(debug=True, port=int(8000))
