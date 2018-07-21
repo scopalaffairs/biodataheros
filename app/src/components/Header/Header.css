@@ -57,7 +57,7 @@
 .bg {
   background-image: url("../../../public/bg.jpg");
   background-repeat: no-repeat;
-  background-position:50% 50%;  /* Sets reference point to scale from */
+  background-position:50% 25%;  /* Sets reference point to scale from */
   background-size:cover;        /* Sets background image to cover entire element */
 }
 
@@ -67,6 +67,7 @@
 
 .bigheader {
   font-size: 2.8em;
+  margin-top: 2em !important;
   padding: .2em !important;
   background: black;
 }

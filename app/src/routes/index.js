@@ -44,8 +44,20 @@ const routes = {
       load: () => import(/* webpackChunkName: 'admin' */ './admin'),
     },
     {
-      path: '/mydata',
-      load: () => import(/* webpackChunkName: 'mydata' */ './mydata'),
+      path: '/view',
+      load: () => import(/* webpackChunkName: 'view' */ './view'),
+    },
+    {
+      path: '/request',
+      load: () => import(/* webpackChunkName: 'request' */ './request'),
+    },
+    {
+      path: '/create',
+      load: () => import(/* webpackChunkName: 'providedata' */ './providedata'),
+    },
+    {
+      path: '/requestdata',
+      load: () => import(/* webpackChunkName: 'requestdata' */ './requestdata'),
     },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {

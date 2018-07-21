@@ -59,6 +59,9 @@ class ProvideData extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
+        <Divider hidden />
+          <h1>{this.props.title}</h1>
+          <Divider />
         <Grid>
             <Grid.Row>
                 <Grid.Column width={6}>
@@ -109,57 +112,66 @@ class ProvideData extends React.Component {
                             onChange={(e, ee) => this.handleChange('newPatient', e, ee)} 
                             name="firstName"
                             label="First Name" 
-                            value={this.state.name} 
+                            value={newPatient.firstName} 
                         />
                         <Form.Input 
                             onChange={(e, ee) => this.handleChange('newPatient', e, ee)} 
                             name="lastName"
                             label="Last Name" 
-                            value={this.state.name} 
+                            value={newPatient.lastName} 
                         />
                         <Form.Dropdown
                             onChange={(e, ee) => this.handleChange('newPatient', e, ee)} 
                             name="gender"
                             label="Gender" 
-                            value={this.state.name}
+                            value={newPatient.gender}
                             options={[{key: 'Male', value: 'Male', text: 'Male'}, 
                             {key: 'Fermale', value: 'Fermale', text: 'Fermale'}]} 
                         />
-                        <Button content="Next Step" onClick={() => this.handleItemClick('', { name: 'Data' })} />    
+                        <Button 
+                        className={s.button}
+                        content="Next Step" 
+                        onClick={() => this.handleItemClick('', { name: 'Data' })} />    
                         </Form>
                     }
                     {activeItem === "Data" && <Form>
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)} 
-                            name="name"
-                            label="Name" 
-                            value={this.state.name} 
-                        />
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="age"
-                            label="Age" 
-                            value={this.state.age} 
-                        />
                         <Form.TextArea 
                             onChange={(e, ee) => this.handleChange('data', e, ee)}
                             name="description"
                             label="Description" 
-                            value={this.state.description} 
+                            value={data.description} 
                         />
                         <Form.Input 
                             onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="growth"
-                            label="Growth" 
-                            value={this.state.growth} 
+                            name="height"
+                            label="Height" 
+                            value={data.growth} 
                         />
                         <Form.Input 
                             onChange={(e, ee) => this.handleChange('data', e, ee)}
                             name="weight"
                             label="Weight" 
-                            value={this.state.weight} 
+                            value={data.weight} 
                         />
-                        <Button content="Provide" onClick={this.handleProvide} />
+                        <Form.Input 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="temperature"
+                            label="Temperature" 
+                            value={data.temperature} 
+                        />
+                        <Form.Input 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="pressure"
+                            label="Pressure" 
+                            value={data.pressure} 
+                        />
+                        <Form.Input 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="diagnosis"
+                            label="Diagnosis" 
+                            value={data.diagnose} 
+                        />
+                        <Button className={s.button} content="Provide" onClick={this.handleProvide} />
                     </Form>}
                 </Grid.Column>
             </Grid.Row>

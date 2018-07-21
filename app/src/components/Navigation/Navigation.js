@@ -18,13 +18,13 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className={s.root} role="navigation">
-        <Link className={s.link} to="/providedata">
+        <Link className={s.link} to="/create">
           <Icon name='random' /> Provide Data
         </Link>
-        <Link className={s.link} to="/mydata">
+        <Link className={s.link} to="/view">
           <Icon name='table' /> View My Data
         </Link>
-        <Link className={s.link} to="/requestdata">
+        <Link className={s.link} to="/request">
           <Icon name='shopping basket' /> Request Data
         </Link>
         <span className={s.spacer}> | </span>

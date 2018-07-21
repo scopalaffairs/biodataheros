@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
-import { Divider, Container, Button, Icon, Label, Menu, Table } from 'semantic-ui-react';
+import { Header, Divider, Container, Button, Icon, Label, Menu, Table } from 'semantic-ui-react';
 
 class Home extends React.Component {
   static propTypes = {
@@ -19,19 +19,22 @@ class Home extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <Divider hidden />
           <div className="ui vertical stripe quote segment">
             <div className="ui equal width stackable internally celled grid">
               <div className="center aligned row">
                 <div className="column">
-                  <h3>"What a Company"</h3>
-                  <p>That is what they all say about us</p>
+                  <Header as='h2' icon>
+                    <Icon className={s.icon} name='star' />
+                    Become a data hero
+                    <Header.Subheader>Help to avoid or cure diseases by sharing anonymized clinical records and earn money.</Header.Subheader>
+                  </Header>
                 </div>
                 <div className="column">
-                  <h3>"I shouldn't have gone with their competitor."</h3>
-                  <p>
-                    <b>Nan</b> Chief Fun Officer Acme Toys
-                  </p>
+                  <Header as='h2' icon>
+                    <Icon className={s.icon} name='search' />
+                    Target your study
+                    <Header.Subheader>Find existing patient health records for your research needs and propose a price for the data.</Header.Subheader>
+                  </Header>
                 </div>
               </div>
             </div>
