@@ -12,24 +12,24 @@ import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Navigation.css';
 import Link from '../Link';
+import { Icon } from 'semantic-ui-react';
 
 class Navigation extends React.Component {
   render() {
     return (
       <div className={s.root} role="navigation">
-        <Link className={s.link} to="/about">
-          About
+        <Link className={s.link} to="/providedata">
+          <Icon name='random' /> Provide Data
         </Link>
-        <Link className={s.link} to="/contact">
-          Contact
+        <Link className={s.link} to="/mydata">
+          <Icon name='table' /> My Data
+        </Link>
+        <Link className={s.link} to="/requestdata">
+          <Icon name='shopping basket' /> Request Data
         </Link>
         <span className={s.spacer}> | </span>
-        <Link className={s.link} to="/login">
-          Log in
-        </Link>
-        <span className={s.spacer}>or</span>
-        <Link className={cx(s.link, s.highlight)} to="/register">
-          Sign up
+        <Link className={s.link} to="/profile">
+          Markus Fischer
         </Link>
       </div>
     );
