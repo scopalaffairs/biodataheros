@@ -165,6 +165,12 @@ def new_transaction():
     return "Success", 201
 
 
+@app.route('/patients', methods=['GET'])
+def get_patients():
+    userprofile = "[{\"firstName\":\"Markus\",\"lastName\":\"Fischer\",\
+    \"birthdate\":\"11.08.1995\",\"gender\":\"male\",\"patientId\":1}]"
+    return userprofile, 200
+
 # endpoint to return the node's copy of the chain.
 # Our application will be using this endpoint to query
 # all the posts to display.
