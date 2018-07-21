@@ -13,11 +13,11 @@
   margin: 0 auto;
   padding: 20px 0;
   max-width: var(--max-content-width);
-  min-height: 35em;
+  min-height: 4em;
 }
 
 .brand {
-  color: color(var(--brand-color) lightness(+10%));
+  color: color(var(--brand-color) lightness(10%));
   text-decoration: none;
   font-size: 1.75em; /* ~28px */
 }
