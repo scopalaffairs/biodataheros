@@ -90,7 +90,7 @@ class ProvideData extends React.Component {
                     <Divider />
                     <Grid>
                         <Grid.Row>
-                            <Grid.Column width={6}>
+                            <Grid.Column width={5}>
                                 <Menu pointing vertical>
                                     <Menu.Item
                                         name='Select patient'
@@ -109,10 +109,10 @@ class ProvideData extends React.Component {
                                     />
                                 </Menu>
                             </Grid.Column>
-                            <Grid.Column width={10}>
+                            <Grid.Column width={11}>
                                 {activeItem === "Select patient" &&
                                     <Form>
-                                        <Button.Group className={s.buttonGroup}>
+                                        <Button.Group fluid className={s.buttonGroup}>
                                             <Button
                                                 onClick={() => this.handleChangeIsCreate(false)}
                                                 className={isPatientCreated ? '' : s.button}
@@ -157,7 +157,9 @@ class ProvideData extends React.Component {
 
                                         <Button
                                             className={`${s.button} ${s.topMargin}`}
+                                            floated="right"
                                             content="Next Step"
+                                            color='blue'
                                             onClick={() => this.handleItemClick('', { name: 'Enter Clinical Data' })} />
                                     </Form>
                                 }
@@ -226,7 +228,8 @@ class ProvideData extends React.Component {
                                     </Form.Group>
                                     <Button
                                         className={`${s.button} ${s.topMargin}`}
-                                        content="Provide"
+                                        floated="right"
+                                        content="Create Health Record"
                                         onClick={this.handleProvide}
                                     />
                                 </Form>}
