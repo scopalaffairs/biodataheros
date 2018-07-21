@@ -1,10 +1,10 @@
-from hashlib import sha256
 import json
-import time
 import sys
+import time
+from hashlib import sha256
 
-from flask import Flask, request
 import requests
+from flask import Flask, request
 
 
 class Block:
@@ -134,6 +134,7 @@ class Blockchain:
         self.unconfirmed_transactions = []
         # announce it to the network
         announce_new_block(new_block)
+        print(new_block.index)
         return new_block.index
 
 
@@ -193,11 +194,12 @@ def mine_unconfirmed_transactions():
 @app.route('/add_nodes', methods=['POST'])
 def register_new_peers():
     nodes = request.get_json()
+    print(nodes)
     if not nodes:
         return "Invalid data", 400
     for node in nodes:
         peers.add(node)
-
+    print(nodes)
     return "Success", 201
 
 
@@ -207,10 +209,11 @@ def register_new_peers():
 @app.route('/add_block', methods=['POST'])
 def validate_and_add_block():
     block_data = request.get_json()
+    print(block_data)
     block = Block(block_data["index"],
                   block_data["transactions"],
-                  block_data["timestamp",
-                  block_data["previous_hash"]])
+                  block_data["timestamp"],
+                  block_data["previous_hash"])
 
     proof = block_data['hash']
     added = blockchain.add_block(block, proof)
@@ -260,7 +263,9 @@ def announce_new_block(block):
     """
     for peer in peers:
         url = "http://{}/add_block".format(peer)
-        requests.post(url, data=json.dumps(block.__dict__, sort_keys=True))
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        requests.post(url, data=json.dumps(block.__dict__, sort_keys=True), headers=headers)
+        print(json.dumps(block.__dict__))
 
 
 app.run(debug=True, port=int(sys.argv[1]))
