@@ -1,0 +1,13 @@
+import { LINE, PIE, BAR, SCATTER, RADAR, GRAPH } from './types';
+
+export const SERIE_VALUE = 'SERIE_VALUE';
+export const ITEM_NAME = 'ITEM_NAME';
+
+export const LEGENDS_TYPE_DEFAULTS = {
+  [LINE]: SERIE_VALUE,
+  [PIE]: ITEM_NAME,
+  [BAR]: SERIE_VALUE,
+  [SCATTER]: SERIE_VALUE,
+  [RADAR]: ITEM_NAME,
+  [GRAPH]: SERIE_VALUE,
+};
