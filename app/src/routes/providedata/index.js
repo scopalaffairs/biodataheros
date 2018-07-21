@@ -8,18 +8,18 @@
  */
 
 import React from 'react';
-import Layout from '../../components/Layout';
-import Page from '../../components/Page';
-import about from './about.md';
+import LayoutBasic from '../../components/LayoutBasic';
+import ProvideData from '../../components/ProvideData/ProvideData';
 
+const title = 'Provide Data';
 function action() {
   return {
-    chunks: ['about'],
-    title: about.title,
+    chunks: ['providedata'],
+    title,
     component: (
-      <Layout>
-          
-      </Layout>
+    <LayoutBasic>
+        <ProvideData title={title} />
+    </LayoutBasic>
     ),
   };
 }
