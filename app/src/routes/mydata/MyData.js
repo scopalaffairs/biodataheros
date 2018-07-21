@@ -51,7 +51,6 @@ class MyData extends React.Component {
           <Card.Meta>
             <span className='date'>Joined in 2015</span>
           </Card.Meta>
-          <Card.Description>Matthew is a xyz living in Heidelberg.</Card.Description>
         </Card.Content>
         <Card.Content extra>
           <a>
@@ -180,16 +179,16 @@ class MyData extends React.Component {
             <Table.Row>
               <Table.Cell>Keywords used</Table.Cell>
               <Table.Cell>
-                <Label>female</Label>
+                <Label className={s.tag}>male</Label> <Label>ovaries</Label> <Label>cancer</Label>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>Organization</Table.Cell>
-              <Table.Cell>x</Table.Cell>
+              <Table.Cell>Roche Diabetes Care GmbH</Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>Principal investigator</Table.Cell>
-              <Table.Cell>x</Table.Cell>
+              <Table.Cell>Prof. Dr. Alex Hummel</Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>Number of participants</Table.Cell>
