@@ -10,6 +10,16 @@
     max-width: var(--max-content-width);
   }
 
+  .dropzone {
+    border: 2px dashed #747474;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .dropzoneActive {
+    border: 2px solid #36bdb3 !important;
+  }
+
   .button { 
       background-color: #36bdb3 !important;
       color: #ffffff !important;
