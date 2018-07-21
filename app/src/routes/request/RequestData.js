@@ -20,17 +20,23 @@ class RequestData extends React.Component {
     super(props);
 
     this.state = {
-      tags: [
-        { id: "Thailand", text: "Thailand" },
-        { id: "India", text: "India" }
-      ],
+      tags: [],
       suggestions: [
-        { id: 'USA', text: 'USA' },
-        { id: 'Germany', text: 'Germany' },
-        { id: 'Austria', text: 'Austria' },
-        { id: 'Costa Rica', text: 'Costa Rica' },
-        { id: 'Sri Lanka', text: 'Sri Lanka' },
-        { id: 'Thailand', text: 'Thailand' }
+        { id: 'male', text: 'Male' },
+        { id: 'female', text: 'Female' },
+        { id: 'alcoholism', text: 'Alcoholism' },
+        { id: 'cancer', text: 'Cancer' },
+        { id: 'amputation', text: 'Amputation' },
+        { id: 'asthma', text: 'Asthma' },
+        { id: 'brain_injury', text: 'Brain injury' },
+        { id: 'blindness', text: 'Blindness and low vision' },
+        { id: 'celiac_disease', text: 'Celiac disease' },
+        { id: 'cerebral_palsy', text: 'Cerebral palsy' },
+        { id: 'chronic_illness', text: 'Chronic illness' },
+        { id: 'depression', text: 'Depression' },
+        { id: 'drug_abuse', text: 'Drug abuse and addiction' },
+        { id: 'Epilepsy', text: 'Epilepsy' },
+        { id: 'Eczema', text: 'Eczema' },
       ]
     };
     this.handleDelete = this.handleDelete.bind(this);
@@ -73,11 +79,22 @@ class RequestData extends React.Component {
 
           <Header as='h4'>Enter your filter</Header>
 
-          <ReactTags tags={tags}
+          <ReactTags
+            classNames={{
+              tags: 'tagsClass',
+              tagInput: `ui input ${s.tagInput}`,
+              tagInputField: 'tagInputFieldClass',
+              selected: 'selectedClass',
+              tag: 'ui label',
+              remove: 'removeClass',
+              suggestions: s.suggestions,
+              activeSuggestion: s.activeSuggestion
+            }}
+            tags={tags}
             suggestions={suggestions}
             handleDelete={this.handleDelete}
             handleAddition={this.handleAddition}
-            handleDrag={this.handleDrag}
+            //handleDrag={this.handleDrag}
             delimiters={[Keys.TAB, Keys.SPACE, Keys.COMMA]} />
 
         </div>

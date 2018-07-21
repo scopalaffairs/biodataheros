@@ -11,6 +11,39 @@
   max-width: var(--max-content-width);
 }
 
-.tag {
-  margin-bottom: .5em !important;
+/* Tags */
+
+.tagInput {
+  display: block !important;
+  margin-top: 1em;
+}
+
+.suggestions {
+  top: 24px;
+  position: absolute;
+}
+
+.suggestions ul {
+  list-style-type: none;
+  box-shadow: .05em .01em .5em rgba(0, 0, 0, .2);
+  background: white;
+  padding: 0 !important;
+  width: 177px;
+}
+
+.suggestions li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.suggestions li mark {
+  text-decoration: underline;
+  background: none;
+  font-weight: 600;
+}
+
+.activeSuggestion {
+  background: #b7cfe0;
+  cursor: pointer;
 }
