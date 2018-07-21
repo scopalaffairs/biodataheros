@@ -12,7 +12,7 @@ class ProvideData extends React.Component {
             description: '',
             tags: '',
         },
-        activeItem: 'Patient',
+        activeItem: 'Select pation',
         userId: 'patient',
         isPatientCreated: false,
         newPatient: {
@@ -42,18 +42,19 @@ class ProvideData extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         const data = this.state;
+        window.location = '/view'
+    }
+
+    handleChangeIsCreate = (value) => {
+        this.setState({ isPatientCreated: value })
     }
   
     render() {
     
     const { activeItem, isPatientCreated, data, newPatient } = this.state; 
     const users = [{
-        text: 'Donald Duck',
-        value: 11,
-        key: 11
-    }, {
         key: 11,
-        text: 'Donald Trump',
+        text: 'Markus Fischer',
         value: 12,
     }];
     return (
@@ -67,48 +68,42 @@ class ProvideData extends React.Component {
                 <Grid.Column width={6}>
                     <Menu pointing vertical>
                         <Menu.Item 
-                            name='Patient'
-                            active={activeItem === 'Patient'}
+                            name='Select pation'
+                            active={activeItem === 'Select pation'}
                             onClick={this.handleItemClick} 
                         />
                         <Menu.Item
-                            name='Data'
-                            active={activeItem === 'Data'}
+                            name='Enter Clinical Data'
+                            active={activeItem === 'Enter Clinical Data'}
                             onClick={this.handleItemClick}
                         />
                     </Menu>
                 </Grid.Column>
                 <Grid.Column width={10}>
-                    {activeItem === "Patient" && 
+                    {activeItem === "Select pation" && 
                         <Form>
-                        <Divider horizontal>
-                            <Form.Checkbox
-                                value={false} 
-                                checked={!isPatientCreated} 
-                                onChange={(e, ee) => this.handleChange('', e, ee)}
-                                name="isPatientCreated"
-                                toggle 
-                                label="Choose Patient" 
-                            />
-                        </Divider>
-                        <Form.Dropdown 
-                            onChange={(e, ee) => this.handleChange('', e, ee)} 
-                            options={users}
-                            name="patientId"
-                            label="Patient" 
-                            placeholder="Choose Patient"
-                            value={this.state.name} 
-                        />
-                        <Divider horizontal>
-                            <Form.Checkbox 
-                                value={true}
-                                checked={isPatientCreated}
-                                onChange={(e, ee) => this.handleChange('', e, ee)}
-                                name="isPatientCreated" 
-                                toggle 
-                                label="Or Create" />
-                        </Divider>
-                        <Form.Input
+                            <Button.Group className={s.buttonGroup}>
+                                <Button 
+                                    onClick={() => this.handleChangeIsCreate(false)}
+                                    className={isPatientCreated ? '' : s.button}
+                                    >Choose existing patient
+                                </Button>
+                                <Button.Or />
+                                <Button 
+                                    className={!isPatientCreated ? '' : s.button}
+                                    onClick={() => this.handleChangeIsCreate(true)}>
+                                    Create new patient
+                                </Button>
+                            </Button.Group>
+                            {!isPatientCreated && <Form.Dropdown 
+                                onChange={(e, ee) => this.handleChange('', e, ee)} 
+                                options={users}
+                                name="patientId"
+                                label="Patient" 
+                                placeholder="Choose Patient"
+                                value={this.state.name} 
+                            />}
+                        {isPatientCreated && <div><Form.Input
                             onChange={(e, ee) => this.handleChange('newPatient', e, ee)} 
                             name="firstName"
                             label="First Name" 
@@ -126,52 +121,62 @@ class ProvideData extends React.Component {
                             label="Gender" 
                             value={newPatient.gender}
                             options={[{key: 'Male', value: 'Male', text: 'Male'}, 
-                            {key: 'Fermale', value: 'Fermale', text: 'Fermale'}]} 
+                            {key: 'Female', value: 'Female', text: 'Female'}]} 
                         />
+                        </div>}
+                        
                         <Button 
-                        className={s.button}
-                        content="Next Step" 
-                        onClick={() => this.handleItemClick('', { name: 'Data' })} />    
+                            className={`${s.button} ${s.topMargin}`}
+                            content="Next Step" 
+                            onClick={() => this.handleItemClick('', { name: 'Enter Clinical Data' })} />    
                         </Form>
                     }
-                    {activeItem === "Data" && <Form>
-                        <Form.TextArea 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="description"
-                            label="Description" 
-                            value={data.description} 
-                        />
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="height"
-                            label="Height" 
-                            value={data.growth} 
-                        />
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="weight"
-                            label="Weight" 
-                            value={data.weight} 
-                        />
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="temperature"
-                            label="Temperature" 
-                            value={data.temperature} 
-                        />
-                        <Form.Input 
-                            onChange={(e, ee) => this.handleChange('data', e, ee)}
-                            name="pressure"
-                            label="Pressure" 
-                            value={data.pressure} 
-                        />
+                    {activeItem === "Enter Clinical Data" && <Form>
                         <Form.Input 
                             onChange={(e, ee) => this.handleChange('data', e, ee)}
                             name="diagnosis"
                             label="Diagnosis" 
                             value={data.diagnose} 
                         />
-                        <Button className={s.button} content="Provide" onClick={this.handleProvide} />
+                        <Form.TextArea 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="description"
+                            label="Description" 
+                            value={data.description} 
+                        />
+                        <Form.Group widths='equal'>
+                            <Form.Input 
+                                onChange={(e, ee) => this.handleChange('data', e, ee)}
+                                name="height"
+                                label="Height (cm)" 
+                                value={data.growth} 
+                            />
+                            <Form.Input 
+                                onChange={(e, ee) => this.handleChange('data', e, ee)}
+                                name="weight"
+                                label="Weight (cm)" 
+                                value={data.weight} 
+                            />
+                        </Form.Group>
+                        <Form.Group widths='equal'>
+                        <Form.Input 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="temperature"
+                            label="Temperature (°C)" 
+                            value={data.temperature} 
+                        />
+                        <Form.Input 
+                            onChange={(e, ee) => this.handleChange('data', e, ee)}
+                            name="pressure"
+                            label="Pressure (mm Hg)" 
+                            value={data.pressure} 
+                        />
+                        </Form.Group>
+                        <Button 
+                            className={`${s.button} ${s.topMargin}`} 
+                            content="Provide" 
+                            onClick={this.handleProvide} 
+                        />
                     </Form>}
                 </Grid.Column>
             </Grid.Row>
