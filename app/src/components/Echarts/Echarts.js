@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import { Grid, Header } from 'semantic-ui-react';
 import s from './Echarts.css';
-import AsyncComponent from '../../components/AsyncComponent';
+import AsyncComponent from '../../components/AsyncComponent/AsyncComponent';
 import zooms from './modules/zooms';
 import yAxises from './modules/yAxises';
 import xAxises from './modules/xAxises';
@@ -17,7 +17,7 @@ import { ZOOM_IN, ZOOM_OUT } from './constants/buttonTypes';
 import { AXIS_DEFAULTS } from './constants/axis';
 import {
   LEGENDS_TYPE_DEFAULTS,
-  SERIE_VALUE,
+  SERIE_VALUE,  
   ITEM_NAME,
 } from './constants/legends';
 import { BUTTONS_DEFAULTS_SET } from './constants/buttons';

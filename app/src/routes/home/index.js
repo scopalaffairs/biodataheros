@@ -20,7 +20,7 @@ async function action({ fetch }) {
   const { data } = await resp.json();
   if (!data || !data.news) throw new Error('Failed to load the news feed.');
   return {
-    title: 'GenBlock',
+    title: 'BioDataHero',
     chunks: ['home'],
     component: (
       <Layout>

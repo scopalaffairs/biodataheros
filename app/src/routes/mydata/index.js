@@ -2,7 +2,7 @@ import React from 'react';
 import LayoutBasic from '../../components/LayoutBasic';
 import MyData from './MyData';
 
-const title = 'My Data';
+const title = 'View My Data';
 
 function action() {
   return {
