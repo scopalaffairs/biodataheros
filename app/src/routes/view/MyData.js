@@ -179,7 +179,7 @@ class MyData extends React.Component {
             <Table.Row>
               <Table.Cell>Keywords used</Table.Cell>
               <Table.Cell>
-                <Label className={s.tag}>male</Label> <Label>ovaries</Label> <Label>cancer</Label>
+                <Label className={s.tag}>Male</Label> <Label>Ovaries</Label> <Label>Cancer</Label>
               </Table.Cell>
             </Table.Row>
             <Table.Row>
