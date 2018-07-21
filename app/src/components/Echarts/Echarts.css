@@ -1,0 +1,13 @@
+.allignRow{
+    min-width: 400px;
+    text-align: right !important;
+    height: 38px;
+  }
+
+.headerRow {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding-top: 40px !important;
+    padding-bottom: 0px !important;
+    min-height: 78px !important;
+}  
