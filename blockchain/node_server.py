@@ -25,7 +25,7 @@ class Block:
 
 class Blockchain:
     # difficulty of our PoW algorithm
-    difficulty = 2
+    difficulty = 0
 
     def __init__(self):
         self.unconfirmed_transactions = []
@@ -38,7 +38,7 @@ class Blockchain:
         the chain. The block has index 0, previous_hash as 0, and
         a valid hash.
         """
-        genesis_block = Block(0, [], time.time(), "0")
+        genesis_block = Block(0, [], 0, "0")
         genesis_block.hash = genesis_block.compute_hash()
         self.chain.append(genesis_block)
 
@@ -55,14 +55,18 @@ class Blockchain:
           in the chain match.
         """
         previous_hash = self.last_block.hash
+        print(self.last_block.hash)
 
         if previous_hash != block.previous_hash:
+            print("PREV HASH", block.previous_hash)
             return False
 
         if not Blockchain.is_valid_proof(block, proof):
+            print("NOT VALID PROOF", proof)
             return False
 
         block.hash = proof
+        print("chain", block)
         self.chain.append(block)
         return True
 
@@ -89,6 +93,9 @@ class Blockchain:
         Check if block_hash is valid hash of block and satisfies
         the difficulty criteria.
         """
+
+        print("computehash", block.compute_hash(), json.dumps(block.__dict__))
+        print("block_hash", block_hash)
         return (block_hash.startswith('0' * Blockchain.difficulty) and
                 block_hash == block.compute_hash())
 
@@ -156,7 +163,7 @@ def new_transaction():
 
     for field in required_fields:
         if not tx_data.get(field):
-            return "Invlaid transaction data", 404
+            return "Invalid transaction data", 404
 
     tx_data["timestamp"] = time.time()
 
@@ -171,9 +178,27 @@ def get_patients():
     \"birthdate\":\"11.08.1995\",\"gender\":\"male\",\"patientId\":1}]"
     return userprofile, 200
 
+
+@app.route('/getdata', methods=['GET'])
+def get_data():
+    get_chain()
+    return 200
+
+
+@app.route('/provideData', methods=['POST'])
+def provide_data():
+    author = "1"
+    tx_data = {"content": {"fileName": "test.json","fileHash": 1234},"author": 1,"timestamp": time.time()}
+    blockchain.add_new_transaction(tx_data)
+
+    return "Success", 201
+
+
 # endpoint to return the node's copy of the chain.
 # Our application will be using this endpoint to query
 # all the posts to display.
+
+
 @app.route('/chain', methods=['GET'])
 def get_chain():
     # make sure we've the longest chain
@@ -270,7 +295,8 @@ def announce_new_block(block):
     for peer in peers:
         url = "http://{}/add_block".format(peer)
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        requests.post(url, data=json.dumps(block.__dict__, sort_keys=True), headers=headers)
+        requests.post(url, data=json.dumps(
+            block.__dict__, sort_keys=True), headers=headers)
         print(json.dumps(block.__dict__))
 
 
