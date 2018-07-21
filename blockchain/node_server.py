@@ -300,4 +300,4 @@ def announce_new_block(block):
         print(json.dumps(block.__dict__))
 
 
-app.run(debug=True, port=int(8000))
+app.run(debug=True, port=int(sys.argv[1]))
