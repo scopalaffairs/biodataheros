@@ -151,7 +151,7 @@ app = Flask(__name__)
 blockchain = Blockchain()
 
 # the address to other participating members of the network
-peers = set()
+peers = set(["0.0.0.0:8080", "0.0.0.0:8090"])
 
 
 # endpoint to submit a new transaction. This will be used by

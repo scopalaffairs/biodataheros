@@ -15,9 +15,11 @@ class LayoutBasic extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="layoutRoot">
         <HeaderBasic />
-        {this.props.children}
+        <div className={s.content}>
+          {this.props.children}
+        </div>
         <Footer />
       </div>
     );
