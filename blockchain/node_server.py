@@ -151,7 +151,7 @@ app = Flask(__name__)
 blockchain = Blockchain()
 
 # the address to other participating members of the network
-peers = set(["0.0.0.0:8080", "0.0.0.0:8090"])
+peers = {"127.0.0.1:8080", "127.0.0.1:8090"}
 
 
 # endpoint to submit a new transaction. This will be used by
@@ -188,7 +188,7 @@ def get_data():
 @app.route('/provideData', methods=['POST'])
 def provide_data():
     author = "1"
-    tx_data = {"content": {"fileName": "test.json","fileHash": 1234},"author": 1,"timestamp": time.time()}
+    tx_data = {"content": {"fileName": "test.json", "fileHash": 1234}, "author": 1, "timestamp": time.time()}
     blockchain.add_new_transaction(tx_data)
 
     return "Success", 201
@@ -300,4 +300,4 @@ def announce_new_block(block):
         print(json.dumps(block.__dict__))
 
 
-app.run(host="0.0.0.0", debug=True, port=int(sys.argv[1]))
+app.run(host="127.0.0.1", debug=True, port=int(sys.argv[1]))
