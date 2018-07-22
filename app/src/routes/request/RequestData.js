@@ -108,8 +108,8 @@ class RequestData extends React.Component {
       }
     });
 
-    const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779', 
-        '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
+      const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779', 
+          '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
     return (
       <div className={s.root}>
         <div className={s.container}>
