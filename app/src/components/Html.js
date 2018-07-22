@@ -49,7 +49,7 @@ class Html extends React.Component {
           ))}
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="apple-touch-icon" href="/icon.png" />
-
+          <link rel="stylesheet" href="/global.css" />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"

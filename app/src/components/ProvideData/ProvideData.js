@@ -117,13 +117,21 @@ class ProvideData extends React.Component {
                                                 onClick={() => this.handleChangeIsCreate(false)}
                                                 className={isPatientCreated ? '' : s.button}
                                             >Choose existing patient
+<<<<<<< HEAD
                                         </Button>
+=======
+                                            </Button>
+>>>>>>> 1923b555c62c51a8dba29d171c797cce02a8f61f
                                             <Button.Or />
                                             <Button
                                                 className={!isPatientCreated ? '' : s.button}
                                                 onClick={() => this.handleChangeIsCreate(true)}>
                                                 Create new patient
+<<<<<<< HEAD
                                             </Button>
+=======
+                                            </Button>           
+>>>>>>> 1923b555c62c51a8dba29d171c797cce02a8f61f
                                         </Button.Group>
                                         {!isPatientCreated && <Form.Dropdown
                                             onChange={(e, ee) => this.handleChange('', e, ee)}
@@ -208,7 +216,7 @@ class ProvideData extends React.Component {
                                         <Form.Input
                                             onChange={(e, ee) => this.handleChange('data', e, ee)}
                                             name="weight"
-                                            label="Weight (cm)"
+                                            label="Weight (kg)"
                                             value={data.weight}
                                         />
                                     </Form.Group>
