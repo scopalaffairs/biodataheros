@@ -10,7 +10,7 @@ from app import app
 
 # The node with which our application interacts, there can be multiple
 # such nodes as well.
-CONNECTED_NODE_ADDRESS = "http://127.0.0.1:" + (sys.argv[1])
+CONNECTED_NODE_ADDRESS = "http://0.0.0.0:" + (sys.argv[1])
 
 posts = []
 
@@ -40,8 +40,7 @@ def fetch_posts():
 def index():
     fetch_posts()
     return render_template('index.html',
-                           title='YourNet: Decentralized '
-                                 'content sharing',
+                           title=sys.argv[3],
                            posts=posts,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)

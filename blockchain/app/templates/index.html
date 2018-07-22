@@ -6,25 +6,35 @@
 
 	<center>
 	<form action="/submit" id="textform" method="post">
-	    <textarea name="content" rows="4" cols="50" placeholder="Just write whatever you want to..."></textarea>
+	    <textarea name="content" rows="4" cols="50" placeholder="Sensitive Health Data..."></textarea>
 	    <br>
-	    <input type="text" name="author" placeholder="Your name">
+	    <input type="text" name="author" placeholder="Contributor">
 	    <input type="submit" value="Post">
 	</form>
 	</center>
 
 	<br>
 
-	<a href="{{node_address}}/mine" target="_blank"><button>Request to mine</button></a>
-	<a href="/"><button>Resync</button></a>
+    <center>
+        <p>
+            <iframe src="" name="iframe_a"></iframe>
+        </p>
+
+        <a href="{{ node_address }}/mine" target="iframe_a">
+            <button>Submit Data</button>
+        </a>
+        <a href="/">
+            <button>Resync</button>
+        </a>
+    </center>
 
 	<div style="margin: 20px;">
 
     {% for post in posts %}
     <div class="post_box">
 	   <div class="post_box-header">
-	      <div class="post_box-options"><button class="option-btn">Reply</button></div>
-	      <div style="background: rgb(0, 97, 146) none repeat scroll 0% 0%; box-shadow: rgb(0, 97, 146) 0px 0px 0px 2px;" class="post_box-avatar">{{post.author[0]}}</div>
+	      <div class="post_box-options"></div>
+	      <div style="background: #36beb4 none repeat scroll 0% 0%; box-shadow: dimgrey 0px 0px 0px 3px;" class="post_box-avatar">{{post.author[0]}}</div>
 	      <div class="name-header">{{post.author}}</div>
 	      <div class="post_box-subtitle"> Posted at <i>{{readable_time(post.timestamp)}}</i></div>
 	   </div>
@@ -37,6 +47,21 @@
 	{% endfor %}
 
 	<style>
+        body {
+            font-family: Arial;
+        }
+        iframe {
+            width: 325px;
+            height: 40px;
+        }
+        button, input[type="submit"] {
+            background: #36beb4;
+            height: 30px;
+            width: 100px;
+        }
+        input {
+            height: 30px;
+        }
 		.post_box {
 		    background: #fff;
 		    padding: 12px 0px 0px 12px;
@@ -57,7 +82,7 @@
 		    justify-content: center;
 		    align-items: center;
 		    color: white;
-		    font-size: 22px;
+		    font-size: 20px;
 		    float: left;
 		    margin-right: 16px;
 		    border: 1px solid #fff;
@@ -88,7 +113,7 @@
 		.option-btn {
 		    background: #f8f8f8;
 		    border: none;
-		    color: #2c3e50;
+		    color: #36beb4;
 		    padding: 7px;
 		    cursor: pointer;
 		    font-size: 14px;

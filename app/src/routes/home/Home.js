@@ -26,7 +26,7 @@ class Home extends React.Component {
                   <Header as='h2' icon>
                     <Icon className={s.icon} name='star' />
                     Become a data hero
-                    <Header.Subheader>Help to avoid or cure diseases by sharing anonymized clinical records and earn money.</Header.Subheader>
+                    <Header.Subheader>Help to avoid or cure diseases by sharing anonymized clinical records and earn BioCoins.</Header.Subheader>
                   </Header>
                 </div>
                 <div className="column">

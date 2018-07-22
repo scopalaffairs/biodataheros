@@ -20,7 +20,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 0 40px;
+  padding: 0;
   max-width: var(--max-content-width);
 }
 
