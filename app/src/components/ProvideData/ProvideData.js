@@ -117,6 +117,7 @@ class ProvideData extends React.Component {
                                                 onClick={() => this.handleChangeIsCreate(false)}
                                                 className={isPatientCreated ? '' : s.button}
                                             >Choose existing patient
+
                                             </Button>
                                             <Button.Or />
                                             <Button

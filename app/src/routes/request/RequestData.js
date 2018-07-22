@@ -168,7 +168,7 @@ class RequestData extends React.Component {
                     type="number"
                     onChange={this.onPriceChange} 
                   />
-                  <Label>$</Label>
+                  <Label>€</Label>
                 </Form.Input>
               </Form>
                 </Card.Content>
@@ -176,7 +176,7 @@ class RequestData extends React.Component {
                 <Button
                     fluid
                     className={`${s.button} ${s.topMargin}`}
-                    content="Create Request"
+                    content="Create Data Request"
                 />
                 </Card.Content>
               </Card>
