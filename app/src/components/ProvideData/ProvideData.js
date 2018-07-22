@@ -117,13 +117,13 @@ class ProvideData extends React.Component {
                                                 onClick={() => this.handleChangeIsCreate(false)}
                                                 className={isPatientCreated ? '' : s.button}
                                             >Choose existing patient
-                    </Button>
+                                        </Button>
                                             <Button.Or />
                                             <Button
                                                 className={!isPatientCreated ? '' : s.button}
                                                 onClick={() => this.handleChangeIsCreate(true)}>
                                                 Create new patient
-                    </Button>
+                                            </Button>
                                         </Button.Group>
                                         {!isPatientCreated && <Form.Dropdown
                                             onChange={(e, ee) => this.handleChange('', e, ee)}
@@ -233,6 +233,29 @@ class ProvideData extends React.Component {
                                         onClick={this.handleProvide}
                                     />
                                 </Form>}
+                                {activeItem === "Connect Wearable" &&
+                                    <div>
+                                        <Header as='h3'>Connect Wearable</Header>
+                                        <div>Please start the BioDataApp on your Apple Watch and enter the code provided to you:</div>
+                                        <Divider hidden />
+                                        <Form>
+                                            <Form.Group>
+                                                <Form.Input
+                                                    onChange={(e, ee) => this.handleChange('data', e, ee)}
+                                                    name="code"
+                                                    label="Code"
+                                                    value={data.code}
+                                                />
+                                            </Form.Group>
+                                            <Button
+                                                className={`${s.button} ${s.topMargin}`}
+                                                floated="right"
+                                                content="Connect Apple Watch"
+                                                onClick={this.handleProvide}
+                                            />
+                                        </Form>
+                                    </div>
+                                }
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
