@@ -93,10 +93,10 @@ class Echarts extends React.Component {
     // set default options
     const option = {
       grid: {
-        right: '120px',
-        left: '120px',
-        top: '80px',
-        bottom: '80px',
+        right: '20px',
+        left: '30px',
+        top: '20px',
+        bottom: '40px',
       },
       series: {
         ...this.props.series,
@@ -309,7 +309,6 @@ class Echarts extends React.Component {
         },
       };
     }
-    console.log(option);
     return (
       <Grid
         onMouseLeave={this.handleMouseLeave}
@@ -323,7 +322,7 @@ class Echarts extends React.Component {
                 ref={e => {
                   this.echarts_react = e;
                 }}
-                style={{ width: '99%', height: '400px' }}
+                style={{ width: '99%', height: '340px' }}
                 {...this.props.echartProps}
               />
             )}
