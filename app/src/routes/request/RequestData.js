@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './RequestData.css';
-import { Table, Dropdown, List, Grid, Header, Icon, Input, Label, Menu, Divider, Card, Image, } from 'semantic-ui-react'
+import { Table, Dropdown, List, Button, Grid, Header, Icon, Form, Input, Label, Menu, Divider, Card, Image, } from 'semantic-ui-react'
 import { WithContext as ReactTags } from 'react-tag-input';
 import Echarts from '../../components/Echarts/Echarts';
 import { BAR } from '../../components/Echarts/constants/types';
@@ -12,6 +12,8 @@ const Keys = {
   SPACE: 32,
   COMMA: 188,
 };
+
+const PREDEFINED_PRISES = [99, 119, 129, 135, 139, 143, 147, 151, 155, 159, 162];
 
 class RequestData extends React.Component {
   static propTypes = {
@@ -23,6 +25,7 @@ class RequestData extends React.Component {
 
     this.state = {
       tags: [],
+      price: 0,
       suggestions: [
         { id: 'male', text: 'Male' },
         { id: 'female', text: 'Female' },
@@ -46,16 +49,24 @@ class RequestData extends React.Component {
     this.handleDrag = this.handleDrag.bind(this);
   }
 
+  onPriceChange = (event) => {
+    this.setState({ price: event.target.value });
+  }
 
   handleDelete(i) {
     const { tags } = this.state;
+    const price = tags.length ? PREDEFINED_PRISES[tags.length] : 0;
     this.setState({
+      price,
       tags: tags.filter((tag, index) => index !== i),
     });
+
+    
   }
 
   handleAddition(tag) {
-    this.setState(state => ({ tags: [...state.tags, tag] }));
+    const price = PREDEFINED_PRISES[this.state.tags.length + 1];
+    this.setState(state => ({ tags: [...state.tags, tag], price }));
   }
 
   handleDrag(tag, currPos, newPos) {
@@ -72,15 +83,14 @@ class RequestData extends React.Component {
   render() {
     const { tags, suggestions } = this.state;
 
-    const counts = [105, 20, 32, 44, 18, 19, 40, 15, 17, 86];
+    const counts = [98, 40, 32, 44, 66, 56, 40, 51, 71, 86, 48];
     const items = tags.map(tag => {
       return {
-        count: counts[tag.text.length % 10],
+        count: counts[(tag.text.length + 4) % 10],
         name: tag.text,
       }
     });
-    console.log(items);
-    console.log(items);
+
     const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779', 
         '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
     return (
@@ -110,14 +120,55 @@ class RequestData extends React.Component {
             //handleDrag={this.handleDrag}
             delimiters={[Keys.TAB, Keys.SPACE, Keys.COMMA]} />
           
-          {!!tags.length && <Echarts 
-          barColors={barColors}
-          withTooltip 
-            type={BAR} items={items} series={[{
-            value: "count",
-            name: "name",
-          }]} />}
-        </div>
+          {!!tags.length && <div>
+          <Header className={s.audienceHeader} as='h2'>Audience overview</Header>
+          <Grid>
+          <Grid.Row>
+          <Grid.Column width={11}>
+            <Echarts 
+              barColors={barColors}
+              withTooltip 
+                type={BAR} 
+                items={items} 
+                series={[{
+                value: "count",
+                name: "name",
+              }]} />
+          </Grid.Column>
+          <Grid.Column  width={5}>
+              <Card>
+                <Card.Content>
+                  <Card.Header className={s.cardHeader}>Set your bid</Card.Header>
+                  <Form>
+                <Form.Input 
+                  labelPosition='right' 
+                  name='price' 
+                  type='text' 
+                  placeholder='Price'
+                >
+                  <input 
+                    value={this.state.price} 
+                    type="number"
+                    onChange={this.onPriceChange} 
+                  />
+                  <Label>$</Label>
+                </Form.Input>
+              </Form>
+                </Card.Content>
+                <Card.Content extra>
+                <Button
+                    fluid
+                    className={`${s.button} ${s.topMargin}`}
+                    content="Create Request"
+                />
+                </Card.Content>
+              </Card>
+          </Grid.Column>
+          
+          </Grid.Row>
+          </Grid>
+          </div>}
+          </div>
       </div>
     );
   }
