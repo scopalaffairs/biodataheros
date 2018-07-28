@@ -57,6 +57,9 @@ class Blockchain:
         previous_hash = self.last_block.hash
         print(self.last_block.hash)
 
+        print(type(previous_hash))
+        print(type(block.previous_hash))
+
         if previous_hash != block.previous_hash:
             print("PREV HASH", block.previous_hash)
             return False
