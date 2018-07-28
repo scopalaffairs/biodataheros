@@ -78,7 +78,7 @@ class RequestData extends React.Component {
       tags: tags.filter((tag, index) => index !== i),
     });
 
-    
+
   }
 
   handleAddition(tag) {
@@ -108,17 +108,18 @@ class RequestData extends React.Component {
       }
     });
 
-      const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779', 
-          '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
+    const barColors = ['#9dc183', '#c7ea46', '#00A86B', '#8F9779',
+      '#4F7942', '#98FB98', '#0b6623', '#D0F0C0', '#50C878', '#4CBB17'];
     return (
       <div className={s.root}>
         <div className={s.container}>
           <Divider hidden />
           <h1>{this.props.title}</h1>
           <Divider />
-
-          <Header as='h4'>Enter your filter</Header>
-
+          <Header as='h4'>
+            Enter your filter
+            <Header.Subheader>e.g. male, alcoholism</Header.Subheader>
+          </Header>
           <ReactTags
             classNames={{
               tags: 'tagsClass',
@@ -136,56 +137,56 @@ class RequestData extends React.Component {
             handleAddition={this.handleAddition}
             //handleDrag={this.handleDrag}
             delimiters={[Keys.TAB, Keys.SPACE, Keys.COMMA]} />
-          
+
           {!!tags.length && <div>
-          <Header className={s.audienceHeader} as='h2'>Audience overview</Header>
-          <Grid>
-          <Grid.Row>
-          <Grid.Column width={11}>
-            <Echarts 
-              barColors={barColors}
-              withTooltip 
-                type={BAR} 
-                items={items} 
-                series={[{
-                value: "count",
-                name: "name",
-              }]} />
-          </Grid.Column>
-          <Grid.Column  width={5}>
-              <Card>
-                <Card.Content>
-                  <Card.Header className={s.cardHeader}>Set your bid</Card.Header>
-                  <Form>
-                <Form.Input 
-                  labelPosition='right' 
-                  name='price' 
-                  type='text' 
-                  placeholder='Price'
-                >
-                  <input 
-                    value={this.state.price} 
-                    type="number"
-                    onChange={this.onPriceChange} 
-                  />
-                  <Label>€</Label>
-                </Form.Input>
-              </Form>
-                </Card.Content>
-                <Card.Content extra>
-                <Button
-                    fluid
-                    className={`${s.button} ${s.topMargin}`}
-                    content="Create Data Request"
-                />
-                </Card.Content>
-              </Card>
-          </Grid.Column>
-          
-          </Grid.Row>
-          </Grid>
+            <Header className={s.audienceHeader} as='h2'>Audience overview</Header>
+            <Grid>
+              <Grid.Row>
+                <Grid.Column width={11}>
+                  <Echarts
+                    barColors={barColors}
+                    withTooltip
+                    type={BAR}
+                    items={items}
+                    series={[{
+                      value: "count",
+                      name: "name",
+                    }]} />
+                </Grid.Column>
+                <Grid.Column width={5}>
+                  <Card>
+                    <Card.Content>
+                      <Card.Header className={s.cardHeader}>Set your bid</Card.Header>
+                      <Form>
+                        <Form.Input
+                          labelPosition='right'
+                          name='price'
+                          type='text'
+                          placeholder='Price'
+                        >
+                          <input
+                            value={this.state.price}
+                            type="number"
+                            onChange={this.onPriceChange}
+                          />
+                          <Label>€</Label>
+                        </Form.Input>
+                      </Form>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Button
+                        fluid
+                        className={`${s.button} ${s.topMargin}`}
+                        content="Create Data Request"
+                      />
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
+
+              </Grid.Row>
+            </Grid>
           </div>}
-          </div>
+        </div>
       </div>
     );
   }
