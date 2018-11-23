@@ -7,5 +7,5 @@
 * Uladzislau Ulasenka
 * Till Rosemann
 * Sascha Tron
-* Daniel Hermann
+* Daniel Herrmann
 * Blessing Silaigwana
