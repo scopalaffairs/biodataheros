@@ -25,14 +25,14 @@ class Home extends React.Component {
                 <div className="column">
                   <Header as='h2' icon>
                     <Icon className={s.icon} name='star' />
-                    Become a data hero
-                    <Header.Subheader>Help to avoid or cure diseases by sharing anonymized clinical records and earn BioCoins.</Header.Subheader>
+                    <h2>Patient/Data Owner</h2>
+                    <Header.Subheader>Advance research by sharing anonymized genomic & clinical records and earn BioCoins.</Header.Subheader>
                   </Header>
                 </div>
                 <div className="column">
                   <Header as='h2' icon>
                     <Icon className={s.icon} name='search' />
-                    Target your study
+                    <h2>Access data securely</h2>
                     <Header.Subheader>Find existing patient health records for your research needs and propose a price for the data.</Header.Subheader>
                   </Header>
                 </div>

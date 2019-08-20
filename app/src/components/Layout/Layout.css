@@ -187,5 +187,5 @@ textarea {
 }
 
 .content {
-  min-height: calc(100vh - 910px) !important;
+  min-height: calc(100vh - 550px) !important;
 }

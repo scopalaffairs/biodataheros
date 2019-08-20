@@ -19,7 +19,7 @@ class Header extends React.Component {
             <div className={`ui vertical masthead center aligned segment ${s.header}`}>
               <div className={`ui text container`}>
                 <h1 className={`ui inverted header ${s.bigheader}`}>
-                  One-Stop-Shop for clinical data
+                  Africa's one-stop-shop for genomic and biomedical data!
                 </h1>
               </div>
             </div>

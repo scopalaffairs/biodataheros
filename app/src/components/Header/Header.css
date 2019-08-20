@@ -1,73 +1,74 @@
 @import '../variables.css';
+
 :root {
-  --brand-color: #61dafb;
+	--brand-color: #61dafb;
 }
 
 .root {
-  color: #fff;
+	color: #fff;
 }
 
 .container {
-  margin: 0 auto;
-  padding: 20px 0;
-  max-width: var(--max-content-width);
-  min-height: 35em;
+	margin: 0 auto;
+	padding: 20px 0;
+	max-width: var(--max-content-width);
+	min-height: 35em;
 }
 
 .brand {
-  color: color(var(--brand-color) lightness(+10%));
-  text-decoration: none;
-  font-size: 1.75em;
-  /* ~28px */
+	color: color(var(--brand-color) lightness(+10%));
+	text-decoration: none;
+	font-size: 1.75em;
+	/* ~28px */
 }
 
 .brandTxt {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .banner {
-  text-align: center;
+	text-align: center;
 }
 
 .bannerTitle {
-  margin: 0;
-  padding: 10px;
-  font-weight: normal;
-  font-size: 4em;
-  line-height: 1em;
+	margin: 0;
+	padding: 10px;
+	font-weight: normal;
+	font-size: 4em;
+	line-height: 1em;
 }
 
 .bannerDesc {
-  padding: 0;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.25em;
-  margin: 0;
+	padding: 0;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 1.25em;
+	margin: 0;
 }
 
 .header {
-  margin-top: 8em !important;
+	margin-top: 8em !important;
 }
 
 .title {
-  background: #36beb4;
-  padding: .2em !important;
-  opacity: .5;
+	background: #36beb4;
+	padding: .2em !important;
+	opacity: .5;
 }
 
 .bg {
-  background-image: url("../../../public/bg.jpg");
-  background-repeat: no-repeat;
-  background-position:50% 25%;  /* Sets reference point to scale from */
-  background-size:cover;        /* Sets background image to cover entire element */
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../../../public/bg_1.jpg");
+	background-repeat: no-repeat;
+	background-position: 50% 25%; /* Sets reference point to scale from */
+	background-size: cover; /* Sets background image to cover entire element */
 }
 
 .subheader {
-  background: black;
+	background: black;
 }
 
 .bigheader {
-  font-size: 2.8em;
-  margin-top: 2em !important;
-  padding: .2em !important;
-  background: black;
+	font-size: 2.8em;
+	margin-top: 2em !important;
+	padding: .2em !important;
+	background: black;
 }
