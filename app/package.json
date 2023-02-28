@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
-    "@babel/node": "^7.0.0-beta.51",
+    "@babel/node": "^7.20.7",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.51",
     "@babel/plugin-transform-react-inline-elements": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
@@ -84,7 +84,7 @@
     "jest": "^23.1.0",
     "lint-staged": "^7.2.0",
     "markdown-it": "^8.4.1",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^0.5.6",
     "null-loader": "^0.1.1",
     "opn-cli": "^3.1.0",
     "pixrem": "^4.0.1",
